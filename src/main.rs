@@ -2,10 +2,7 @@
 extern crate rocket;
 
 use rocket::response::content;
-use rocket::fs::NamedFile;
-use rocket::response::status::NotFound;
-
-use std::path::PathBuf;
+use rocket::fs::{FileServer, relative};
 
 use askama::Template;
 

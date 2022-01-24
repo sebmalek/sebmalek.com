@@ -1,3 +1,62 @@
 html, body {
-    
+    height: 100%;
+}
+
+#main {
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+#name {
+    color: #999999;
+    font-family: 'Arial', sans-serif;
+    letter-spacing: 0.1rem;
+    width: calc(100% + 0.125rem);
+    font-size: 2.5em;
+    line-height: 1.125;
+    font-weight: 400;
+}
+
+#desc {
+    color: #999999;
+    font-family: 'Arial', sans-serif;
+    font-size: 1em;
+    line-height: 1.75;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    width: calc(100% + 1rem);
+    margin-left: -0.5rem;
+}
+
+#icons li {
+    vertical-align: middle;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin: 0.5rem;
+}
+
+/* fix for email icon */
+.at {
+    margin-left: 0.35rem !important;
+}
+
+a {
+    color: #999999;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #39C2ED;
 }

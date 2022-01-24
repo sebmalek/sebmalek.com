@@ -16,24 +16,16 @@ struct HomepageTemplate {
 }
 
 #[get("/")]
-fn root() -> content::Html<String> {
+fn index() -> content::Html<String> {
     let template = HomepageTemplate { };
 
     let response = content::Html(template.to_string());
     response
 }
 
-#[get("/<path..>")]
-async fn static_files(path: PathBuf) -> Result<NamedFile, NotFound<String>> {
-    let path = PathBuf::from("static").join(path);
-    NamedFile::open(path)
-        .await
-        .map_err(|e| NotFound(e.to_string()))
-}
-
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/", routes![root])
-        .mount("/static", routes![static_files])
+        .mount("/", FileServer::from(relative!("static")))
+        .mount("/", routes![index])
 }

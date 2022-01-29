@@ -12,28 +12,12 @@ use rocket::serde::json::Json;
 
 use rocket::http::ContentType;
 
-use askama::Template;
-
 use std::path::Path;
 
-use rand::{Rng, thread_rng};
-use rand::distributions::Alphanumeric;
-
-#[derive(Template)]
-#[template(path = "index.html")]
-struct HomepageTemplate {
-
-}
-
-#[get("/")]
-fn index() -> content::Html<String> {
-    let template = HomepageTemplate { };
-    content::Html(template.to_string())
-}
+use askama::Template;
 
 //const BASE_URL: &'static str = "http://127.0.0.1:8000/images/";
 //const UPLOAD_PATH: &'static str = "./images";
-
 const BASE_URL: &'static str = "https://sebmalek.com/i/";
 const UPLOAD_PATH: &'static str = "/var/www/images";
 
@@ -87,6 +71,21 @@ async fn upload(mut file: Form<TempFile<'_>>) -> Result<Json<UploadResult>, BadR
     Ok(Json(UploadResult {
         link: format!("{}{}", BASE_URL, filename),
     }))
+}
+
+use rand::{Rng, thread_rng};
+use rand::distributions::Alphanumeric;
+
+#[derive(Template)]
+#[template(path = "index.html")]
+struct HomepageTemplate {
+
+}
+
+#[get("/")]
+fn index() -> content::Html<String> {
+    let template = HomepageTemplate { };
+    content::Html(template.to_string())
 }
 
 #[launch]

@@ -4,6 +4,8 @@ extern crate rocket;
 use rocket::response::content;
 use rocket::fs::{FileServer, relative};
 
+use rocket::response::status::NoContent;
+
 use askama::Template;
 
 #[derive(Template)]
@@ -20,9 +22,15 @@ fn index() -> content::Html<String> {
     response
 }
 
+#[post("/upload")]
+async fn upload() -> NoContent {
+    rocket::response::status::NoContent
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount("/", FileServer::from(relative!("static")))
-        .mount("/", routes![index])
+        .mount("/", routes![index, upload])
+        .mount("/i", FileServer::from(relative!("images")))
 }

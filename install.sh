@@ -3,11 +3,11 @@
 # fail on error
 set -e
 
-rm -rf /opt/website
-mkdir /opt/website
+rm -rf /opt/sebmalek-com
+mkdir /opt/sebmalek-com
 
-cp -R static /opt/website/static
-cp -R templates /opt/website/templates
+cp -R static /opt/sebmalek-com/static
+cp -R templates /opt/sebmalek-com/templates
 
 cargo build --release
-cp target/release/website /opt/website/website
+cp target/release/website /opt/sebmalek-com/website

@@ -1,0 +1,12 @@
+[Unit]
+Description=sebmalek.com website
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+ExecStart=/opt/sebmalek-com/website
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=default.target

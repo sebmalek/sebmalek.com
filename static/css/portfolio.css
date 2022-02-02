@@ -1,0 +1,28 @@
+body, html {
+    font-family: 'Latin Modern', Georgia, Cambria, 'Times New Roman', Times, serif;
+    max-width: 80ch;
+    margin: 0 auto;
+    color: #1a1818;
+    background-color: #f8f9fa;
+    text-rendering: optimizeLegibility;
+    padding: 2rem 1.25rem;
+}
+
+.container {
+    
+}
+
+h1 {
+    font-size: 1.7rem;
+    line-height: 2rem;
+    margin-top: 3rem;
+}
+
+h1, h2 {
+    margin-bottom: 0.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-top: 2.5rem;
+}

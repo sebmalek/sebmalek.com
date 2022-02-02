@@ -18,9 +18,21 @@ fn index() -> Html<String> {
     Html(template.to_string())
 }
 
+#[derive(Template)]
+#[template(path = "portfolio.html")]
+struct PortfolioTemplate {
+
+}
+
+#[get("/portfolio")]
+fn portfolio() -> Html<String> {
+    let template = PortfolioTemplate { };
+    Html(template.to_string())
+}
+
 #[launch]
 fn rocket() -> _ {
     rocket::build()
         .mount("/static", FileServer::from(relative!("static")))
-        .mount("/", routes![index])
+        .mount("/", routes![index, portfolio])
 }

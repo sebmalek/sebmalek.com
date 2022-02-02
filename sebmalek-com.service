@@ -1,12 +1,21 @@
 [Unit]
-Description=sebmalek.com website
 Wants=network-online.target
 After=network-online.target
 
 [Service]
+WorkingDirectory=/opt/sebmalek-com
+
 ExecStart=/opt/sebmalek-com/sebmalek-com
 Restart=always
 RestartSec=2
+
+User=www-data
+Group=www-data
+
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
 
 [Install]
 WantedBy=default.target

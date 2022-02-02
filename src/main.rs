@@ -34,5 +34,6 @@ fn portfolio() -> Html<String> {
 fn rocket() -> _ {
     rocket::build()
         .mount("/static", FileServer::from(relative!("static")))
+        .mount("/files", FileServer::from(relative!("files")))
         .mount("/", routes![index, portfolio])
 }

@@ -4,7 +4,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/opt/sebmalek-com/website
+ExecStart=/opt/sebmalek-com/sebmalek-com
 Restart=always
 RestartSec=2
 

@@ -10,4 +10,4 @@ cp -R static /opt/sebmalek-com/static
 cp -R templates /opt/sebmalek-com/templates
 
 cargo build --release
-cp target/release/website /opt/sebmalek-com/website
+cp target/release/sebmalek-com /opt/sebmalek-com/sebmalek-com

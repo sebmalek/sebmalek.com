@@ -19,7 +19,6 @@ mkdir /tmp/deploy
 cp Rocket.toml /tmp/deploy
 cp target/release/sebmalek-com /tmp/deploy
 cp -R static/ /tmp/deploy
-cp -R files/ /tmp/deploy
 cp -R templates/ /tmp/deploy
 
 rsync --progress -rvzh --exclude={'.gitkeep'} -e 'ssh -o StrictHostKeyChecking=no' /tmp/deploy/* $1:/opt/sebmalek-com
